@@ -276,9 +276,9 @@ footer p{margin:.35rem 0}
   <p class="hint">En rad per brytpunkt. Rättvisande kurs läser du på kartan, distansen mäter du. Resten räknas fram.</p>
 
   <div class="grid g3">
-    <div><label for="varE">Missvisning (° öst)</label><input id="varE" type="number" inputmode="decimal" value="5"></div>
+    <div><label for="varE">Missvisning (° öst)</label><input id="varE" type="number" inputmode="decimal" value="7"></div>
     <div><label for="devE">Deviation (° öst)</label><input id="devE" type="number" inputmode="decimal" value="0"></div>
-    <div><label for="ff">Bränsleflöde (l/h)</label><input id="ff" type="number" inputmode="decimal" placeholder="ur POH"></div>
+    <div><label for="ff">Bränsleflöde (l/h)</label><input id="ff" type="number" inputmode="decimal" placeholder="ur POH" value="15"></div>
   </div>
   <div class="rowc"><input type="checkbox" id="useWind" checked><label for="useWind" style="margin:0">Använd vinden från steg 2</label></div>
   <div class="grid g2">
@@ -309,8 +309,8 @@ footer p{margin:.35rem 0}
   <div class="steph"><span class="stepno">6</span><h2>Bränsleberäkning</h2></div>
   <p class="hint">Sträckbränslet hämtas från steg 5. Kontrollera själv vilket reservkrav som gäller för din flygning.</p>
   <div class="grid g3">
-    <div><label for="fTaxi">Taxi (l)</label><input id="fTaxi" type="number" inputmode="decimal" value="1"></div>
-    <div><label for="fCont">Kontingens (%)</label><input id="fCont" type="number" inputmode="decimal" value="5"></div>
+    <div><label for="fTaxi">Taxi (l)</label><input id="fTaxi" type="number" inputmode="decimal" value="2"></div>
+    <div><label for="fCont">Kontingens (%)</label><input id="fCont" type="number" inputmode="decimal" value="10"></div>
     <div><label for="fAltMin">Alternat (min)</label><input id="fAltMin" type="number" inputmode="decimal" value="0"></div>
     <div><label for="fResMin">Reserv (min)</label><input id="fResMin" type="number" inputmode="decimal" value="30"></div>
     <div><label for="fExtra">Extra (l)</label><input id="fExtra" type="number" inputmode="decimal" value="0"></div>
@@ -337,7 +337,7 @@ footer p{margin:.35rem 0}
   <div class="grid g3">
     <div><label for="mTo">Massa vid start (kg)</label><input id="mTo" type="number" inputmode="decimal" placeholder="ur lastinstr."></div>
     <div><label for="mDens">Densitet (kg/l)</label><input id="mDens" type="number" inputmode="decimal" value="0.72"></div>
-    <div><label for="mMax">Max massa (kg)</label><input id="mMax" type="number" inputmode="decimal" placeholder="ur POH"></div>
+    <div><label for="mMax">Max massa (kg)</label><input id="mMax" type="number" inputmode="decimal" placeholder="ur POH" value="525"></div>
   </div>
   <div class="out">
     <div class="k">Landningsmassa</div>
@@ -374,11 +374,11 @@ footer p{margin:.35rem 0}
   <div class="steph"><span class="stepno">9</span><h2>Sidvind på banan</h2></div>
   <p class="hint">Norr är uppåt och banan vrids efter numret. Använd ytvinden från ATIS, AWOS eller torn.</p>
   <div class="grid g3">
-    <div><label for="rwy">Bana</label><input id="rwy" type="number" inputmode="decimal" min="1" max="36" value="16"></div>
+    <div><label for="rwy">Bana</label><input id="rwy" type="number" inputmode="decimal" min="1" max="36" value="27"></div>
     <div><label for="xwd">Vindriktning (°)</label><input id="xwd" type="number" inputmode="decimal" value="230"></div>
     <div><label for="xws">Vindstyrka (kt)</label><input id="xws" type="number" inputmode="decimal" value="14"></div>
     <div><label for="xwg">Byvind (kt)</label><input id="xwg" type="number" inputmode="decimal" placeholder="valfritt"></div>
-    <div><label for="xmax">Max sidvind (kt)</label><input id="xmax" type="number" inputmode="decimal" placeholder="ur POH"></div>
+    <div><label for="xmax">Max sidvind (kt)</label><input id="xmax" type="number" inputmode="decimal" placeholder="ur POH" value="19"></div>
   </div>
 
   <div class="rwybox">
@@ -466,11 +466,10 @@ function loadStore(){
 /* ---------- 1 karta ---------- */
 const MAP_ITEMS = [
   'Markera brytpunkter och dra färdlinjer',
-  'Distansmarkeringar längs sträckan, längre streck var 5:e',
-  'Ny numrering efter varje brytpunkt',
-  'Markera TOC och TOD',
-  'Ackumulerad tid till kartan, inte tid per sträcka',
-  'Notera nm/min mellan landmärken'
+  'Beräkningar för vind m.m. enligt nedan',
+  'Notera magnetisk kurs och ackumulerad tid per sträcka på kartan',
+  'Notera minutstreck i kartan',
+  'Markera TOC och TOD'
 ];
 function buildMap(){
   const ul=$('mapList');

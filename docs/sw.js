@@ -1,5 +1,5 @@
 /* Preflight – offline-cache. Höj CACHE när du laddar upp en ny version. */
-const CACHE = 'preflight-v1';
+const CACHE = 'preflight-v2';
 const ASSETS = [
   './',
   './index.html',
