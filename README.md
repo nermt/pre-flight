@@ -62,11 +62,10 @@ Kursformlerna följer regeln *öst är minst* — ostlig missvisning och deviati
 
 ## Installation
 
-Appen är statisk och körs var som helst. På GitHub Pages:
+Appen är statisk och ligger i katalogen `docs/`, som körs var som helst. På GitHub Pages:
 
-1. Lägg filerna i repots rot.
-2. **Settings → Pages → Deploy from a branch**, välj `main` och `/ (root)`.
-3. Adressen blir `https://<användarnamn>.github.io/<repo>/`.
+1. **Settings → Pages → Deploy from a branch**, välj `main` och `/docs`.
+2. Adressen blir `https://<användarnamn>.github.io/<repo>/`.
 
 ### På telefonen
 
@@ -77,21 +76,22 @@ Appen är statisk och körs var som helst. På GitHub Pages:
 En service worker cachar appen vid första besöket. Vid uppdatering måste cacheversionen höjas, annars sitter redan installerade enheter kvar på den gamla versionen:
 
 ```js
-// sw.js
+// docs/sw.js
 const CACHE = 'preflight-v1';   // → 'preflight-v2'
 ```
 
 ## Filer
 
 ```
-index.html              hela appen, typsnitt inbakade, inga externa beroenden
-sw.js                   offline-cache
-manifest.webmanifest    namn, färger och ikoner för hemskärmen
-icon-192.png            ikon
-icon-512.png            ikon
-icon-maskable.png       ikon med marginal för Android
-apple-touch-icon.png    ikon för iOS
-logo.png                logotyp för den här filen
+docs/                        appen, det som publiceras
+  index.html                 hela appen, typsnitt inbakade, inga externa beroenden
+  sw.js                      offline-cache
+  manifest.webmanifest       namn, färger och ikoner för hemskärmen
+  icon-192.png               ikon
+  icon-512.png               ikon
+  icon-maskable.png          ikon med marginal för Android
+  apple-touch-icon.png       ikon för iOS
+logo.png                     logotyp för den här filen
 ```
 
 ## Integritet
